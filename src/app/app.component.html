@@ -1,0 +1,25 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav class="primary white-text" #sidebar role="navigation" mode="side" opened="true" position="end">
+        <mat-nav-list>
+            <a mat-list-item routerLink="home">home</a>
+            <a mat-list-item routerLink="about">about</a>
+            <a mat-list-item routerLink="league">league</a>
+            <a mat-list-item routerLink="tournament">tournament</a>
+            <a mat-list-item routerLink="fixture">fixture</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="accent">
+            <mat-toolbar-row>
+                <span>{{title}}</span>
+                <span style="flex: 1 1 auto;"></span>
+                <button mat-icon-button (click)="sidebar.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <app-navigation></app-navigation>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>

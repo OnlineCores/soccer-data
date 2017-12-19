@@ -1,0 +1,33 @@
+/* https://www.materialui.co/colors */
+
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+/* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
+/* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
+
+/* Customizing theme */
+@import '~@angular/material/theming';
+@include mat-core();
+
+/* Color */
+$primary: mat-palette($mat-grey, 900);
+$accent: mat-palette($mat-teal, 700);
+$warn: mat-palette($mat-red, 900);
+$app-theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($app-theme);
+
+/* Export */
+@mixin app-class($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+}
+@include app-class($app-theme);
+
+/* Classes */
+.primary{background-color:mat-color($primary);}
+.primary-text{color:mat-color($primary);}
+.accent{background-color:mat-color($accent);}
+.accent-text{color:mat-color($accent);}
+.warn{background-color:mat-color($warn);}
+.warn-text{color:mat-color($warn);}
